@@ -56,13 +56,6 @@ public class LawsListFragment extends android.support.v4.app.ListFragment {
         if (mCurPageNum == 1) {
             ArrayAdapter<RatingData> adapter1 = new RatingsArrayAdapter(getActivity(), RatingModel.get());
             setListAdapter(adapter1);
-//            // определяем массив типа String
-//            final String[] catnames = new String[] {
-//                    "Рыжик", "Барсик", "Мурзик"
-//            };
-//
-//            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),  android.R.layout.simple_list_item_1, catnames);
-//            setListAdapter(adapter);
         } else {
             ArrayAdapter<LawData> adapter2 = new LawsListArrayAdapter(getActivity(), LawsListModel.get());
             setListAdapter(adapter2);
@@ -82,16 +75,13 @@ public class LawsListFragment extends android.support.v4.app.ListFragment {
         String result;
         switch (pageNum) {
             case 0:
-                result = "Выберите свое мнение";
+                result = "Что вы думаете об этих законах?";
             break;
             case 1:
-                result = "Рейтинг фракций Госдумы, согласно их голосованию";
+                result = "Рейтинг фракций Госдумы, исходя из их голосованию по резонансным законам";
             break;
             case 2:
                 result = "Информация о законах";
-            break;
-            case 3:
-                result = "Статистика";
             break;
             default:
                 result = "";

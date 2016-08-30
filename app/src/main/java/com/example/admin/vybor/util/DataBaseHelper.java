@@ -141,24 +141,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     private Cursor execSQL(String SQL) {
         Cursor c = myDataBase.rawQuery(SQL, null);
         return c != null && c.moveToFirst() ? c : null;
-    }
-
-    public void checkLawsData() {
-        this.openDataBase();
-
-        Cursor c = this.execSQL("SELECT * FROM laws");
-        if (c != null) {
-            String s = c.getString(c.getColumnIndex("informal_name"));
-            System.out.println("********************************************" + s);
-        }
-
-        this.close();
     }
 
     public String[] getDeputyData() {
@@ -230,32 +217,5 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         return data;
     }
-
-//    public List<FactionVotesData> getFactionsVotesForLaw(Integer lawId) {
-//
-//        this.openDataBase();
-//
-//        List<FactionVotesData> data = new ArrayList<>();
-//
-//        Cursor cursor = this.execSQL("SELECT * FROM votes_percent WHERE vote_id =" + lawId);
-//        if (cursor != null) {
-//            while (cursor.isAfterLast() == false) {
-//                String faction = cursor.getString(cursor.getColumnIndex("faction"));
-//                Integer vote = cursor.getInt(cursor.getColumnIndex("vote"));
-//                Integer percent = Math.round(cursor.getFloat(cursor.getColumnIndex("percent")));
-//                data.add(new FactionVotesData(faction, vote, percent));
-//                cursor.moveToNext();
-//            }
-//        }
-//
-//        this.close();
-//
-//        return data;
-//    }
-//
-
-    // Add your public helper methods to access and get content from the database.
-    // You could return cursors by doing "return myDataBase.query(....)" so it'd be easy
-    // to you to create adapters for your views.
 
 }

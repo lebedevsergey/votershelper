@@ -7,13 +7,15 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 
 public class LawsListAdapter extends FragmentStatePagerAdapter implements UpdateableFragment {
+    final int PAGE_NUM = 3;
+
     public LawsListAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return PAGE_NUM;
     }
 
     @Override
@@ -30,7 +32,6 @@ public class LawsListAdapter extends FragmentStatePagerAdapter implements Update
         if (object instanceof UpdateableFragment) {
             ((UpdateableFragment) object).update();
         }
-//        return super.getItemPosition(object);
         return POSITION_NONE;
     }
 

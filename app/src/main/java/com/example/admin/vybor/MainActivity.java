@@ -19,6 +19,7 @@ import com.example.admin.vybor.Models.FactionsVotesModel;
 import java.util.Map;
 
 import com.example.admin.vybor.Models.RatingModel;
+import com.example.admin.vybor.Models.datatypes.LawData;
 import com.example.admin.vybor.util.MapUtil;
 
 public class MainActivity extends AppCompatActivity {

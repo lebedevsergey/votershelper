@@ -20,4 +20,10 @@ public class LawsListModel {
     static public void setFromDb(Context context) {
         model = (new DataBaseHelper(context)).getLawsData();
     }
+
+    static public void setAllTo(int state) {
+        for (LawData item : model) {
+            item.setState(state);
+        }
+    }
 }

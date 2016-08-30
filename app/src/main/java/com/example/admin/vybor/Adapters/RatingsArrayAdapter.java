@@ -48,7 +48,7 @@ public class RatingsArrayAdapter extends ArrayAdapter<RatingData> {
             ((ViewHolder) view.getTag()).text.setTag(list2.get(position));
         }
         ViewHolder holder = (ViewHolder) view.getTag();
-        holder.text.setText(list2.get(position).getFaction());
+        holder.text.setText(list2.get(position).getFactionWithRate());
 
         return view;
     }

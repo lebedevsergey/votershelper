@@ -6,9 +6,9 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.admin.vybor.Models.datatypes.LawData;
@@ -28,7 +28,7 @@ public class LawsListArrayAdapter extends ArrayAdapter<LawData> {
 
     static class ViewHolder {
         protected TextView text;
-        protected CheckBox checkbox;
+        protected Spinner checkbox;
     }
 
     @Override
@@ -46,19 +46,22 @@ public class LawsListArrayAdapter extends ArrayAdapter<LawData> {
                 public void onClick(View view) {
                     LawData element = (LawData) viewHolder.checkbox.getTag();
                     element.toggleState();
-                    viewHolder.checkbox.setChecked(element.getState());
+                    viewHolder.checkbox.setSelection(element.getState());
                 }
             });
 
-            viewHolder.checkbox = (CheckBox) view.findViewById(R.id.check);
-            viewHolder.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView,
-                                             boolean isChecked) {
-                LawData element = (LawData) viewHolder.checkbox.getTag();
-                element.setState(buttonView.isChecked());
+            viewHolder.checkbox = (Spinner) view.findViewById(R.id.check);
+            viewHolder.checkbox.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                public void onItemSelected(AdapterView<?> parent,
+                                           View itemSelected, int selectedItemPosition, long selectedId) {
+                    LawData element = (LawData) viewHolder.checkbox.getTag();
+                    element.setState(selectedItemPosition);
+
+                }
+                public void onNothingSelected(AdapterView<?> parent) {
                 }
             });
+
             view.setTag(viewHolder);
             viewHolder.checkbox.setTag(list.get(position));
         } else {
@@ -67,7 +70,7 @@ public class LawsListArrayAdapter extends ArrayAdapter<LawData> {
         }
         ViewHolder holder = (ViewHolder) view.getTag();
         holder.text.setText(list.get(position).getInformal_name());
-        holder.checkbox.setChecked(list.get(position).getState());
+        holder.checkbox.setSelection(list.get(position).getState());
 
         return view;
     }

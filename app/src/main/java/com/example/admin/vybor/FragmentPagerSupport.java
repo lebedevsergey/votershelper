@@ -3,11 +3,8 @@ package com.example.admin.vybor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.Button;
 
 public class FragmentPagerSupport extends FragmentActivity {
-    static final int PAGES_NUM = 3;
 
     LawsListAdapter mAdapter;
     ViewPager mPager;

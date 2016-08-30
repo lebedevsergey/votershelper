@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">НавстречуВыборам-2016</string>
+    <string name="app_name">Помощник избирателя-2016</string>
     <string name="action_settings">Настройки</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string-array name="answers">
+        <item>Безразличен</item>
+        <item>Не одобряю</item>
+        <item>Одобряю</item>
+    </string-array>
 </resources>

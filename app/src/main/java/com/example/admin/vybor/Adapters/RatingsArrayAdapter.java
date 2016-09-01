@@ -26,7 +26,8 @@ public class RatingsArrayAdapter extends ArrayAdapter<RatingData> {
     }
 
     static class ViewHolder {
-        protected TextView text;
+        protected TextView label;
+        protected TextView rate;
     }
 
     @Override
@@ -40,15 +41,18 @@ public class RatingsArrayAdapter extends ArrayAdapter<RatingData> {
             view = inflater.inflate(R.layout.page2rowlayout, null);
 
             final ViewHolder viewHolder = new ViewHolder();
-            viewHolder.text = (TextView) view.findViewById(R.id.label);
+            viewHolder.label = (TextView) view.findViewById(R.id.label);
+            viewHolder.rate = (TextView) view.findViewById(R.id.rate);
             view.setTag(viewHolder);
-            viewHolder.text.setTag(list2.get(position));
+            viewHolder.label.setTag(list2.get(position));
         } else {
             view = convertView;
-            ((ViewHolder) view.getTag()).text.setTag(list2.get(position));
+            ((ViewHolder) view.getTag()).label.setTag(list2.get(position));
         }
         ViewHolder holder = (ViewHolder) view.getTag();
-        holder.text.setText(list2.get(position).getFactionWithRate());
+        holder.label.setText(list2.get(position).getFactionPrintableName());
+        holder.rate.setText(list2.get(position).getRating().toString());
+
 
         return view;
     }

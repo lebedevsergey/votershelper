@@ -21,9 +21,31 @@ public class LawsListModel {
         model = (new DataBaseHelper(context)).getLawsData();
     }
 
+    static public void getSavedStates(ArrayList<Integer> savedStates) {
+        if (savedStates != null) {
+            setUserVotesFromSaving(savedStates);
+        }
+    }
+
     static public void setAllTo(int state) {
         for (LawData item : model) {
             item.setState(state);
+        }
+    }
+
+    static public ArrayList<Integer> getUserVotesForSaving() {
+        ArrayList<Integer> votes = new ArrayList<>();
+        for (LawData item : model) {
+            votes.add(item.getState());
+        }
+        return votes;
+    }
+
+    static public void setUserVotesFromSaving(ArrayList<Integer> votes) {
+        Integer i =0;
+        for (LawData item : model) {
+            item.setState(votes.get(i));
+            i++;
         }
     }
 }

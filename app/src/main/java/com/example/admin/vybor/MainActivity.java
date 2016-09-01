@@ -2,6 +2,7 @@ package com.example.admin.vybor;
 
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -16,15 +17,14 @@ import android.view.View;
 import com.example.admin.vybor.Models.LawsListModel;
 import com.example.admin.vybor.Models.FactionsVotesModel;
 
-import java.util.Map;
 
 import com.example.admin.vybor.Models.RatingModel;
-import com.example.admin.vybor.Models.datatypes.LawData;
 import com.example.admin.vybor.util.MapUtil;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final int RESULTS_PAGE_NUM = 1;
+    public static final String SAVE_PARAM_NAME = "VotersHelper";
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -46,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         // init data
         LawsListModel.setFromDb(this);
+        if (savedInstanceState != null) {
+            LawsListModel.getSavedStates(savedInstanceState.getIntegerArrayList(SAVE_PARAM_NAME));
+        }
+
         FactionsVotesModel.setFromDb(this);
 
         // init views
@@ -77,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putIntegerArrayList(SAVE_PARAM_NAME, LawsListModel.getUserVotesForSaving());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -92,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(R.string.app_description)
+                    .setTitle(R.string.app_description_title);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
             return true;
         }
         return super.onOptionsItemSelected(item);

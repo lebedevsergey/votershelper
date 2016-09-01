@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.admin.vybor.Adapters.LawsListArrayAdapter;
+import com.example.admin.vybor.Adapters.LawsListInfoModeArrayAdapter;
 import com.example.admin.vybor.Adapters.RatingsArrayAdapter;
 import com.example.admin.vybor.Models.LawsListModel;
 import com.example.admin.vybor.Models.RatingModel;
@@ -53,13 +54,16 @@ public class LawsListFragment extends android.support.v4.app.ListFragment {
         View tv = view.findViewById(R.id.pageTitle);
         ((TextView)tv).setText(pageTitle);
 
-        if (mCurPageNum == 1) {
+        if (mCurPageNum == 0) {
+            ArrayAdapter<LawData> adapter1 = new LawsListArrayAdapter(getActivity(), LawsListModel.get());
+            setListAdapter(adapter1);
+        } else if (mCurPageNum == 1) {
             ArrayAdapter<RatingData> adapter1 = new RatingsArrayAdapter(getActivity(), RatingModel.get());
             setListAdapter(adapter1);
-        } else {
-            ArrayAdapter<LawData> adapter2 = new LawsListArrayAdapter(getActivity(), LawsListModel.get());
+        } else if (mCurPageNum == 2) {
+            ArrayAdapter<LawData> adapter2 = new LawsListInfoModeArrayAdapter(getActivity(), LawsListModel.get());
             setListAdapter(adapter2);
-        }
+    }
 
         return view;
     }

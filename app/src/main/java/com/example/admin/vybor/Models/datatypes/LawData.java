@@ -32,7 +32,7 @@ public class LawData {
     }
 
 
-    public void toggleState(){
+    public void toggleState() {
         this.state = this.state + 1;
         if (this.state > APPROVE) {    // wrap max value
             this.state = DONTCARE;

@@ -74,7 +74,6 @@ public class LawsListFragment extends android.support.v4.app.ListFragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-
     private String getTitle(Integer pageNum) {
         String result;
         switch (pageNum) {
@@ -82,10 +81,10 @@ public class LawsListFragment extends android.support.v4.app.ListFragment {
                 result = "Что вы думаете об этих законах?";
             break;
             case 1:
-                result = "Рейтинг фракций Госдумы, исходя из их голосованию по резонансным законам";
+                result = "Рейтинг партий";
             break;
             case 2:
-                result = "Информация о законах";
+                result = "Об этих законах";
             break;
             default:
                 result = "";

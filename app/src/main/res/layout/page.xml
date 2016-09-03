@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Результатов нет, выберите сначала законы"/>
+            android:text="Чтобы увидеть рейтинг, проставьте свое мнение о наиболее резонансных законах на странице слева и нажмите кнопку внизу"/>
 
     </FrameLayout>
 

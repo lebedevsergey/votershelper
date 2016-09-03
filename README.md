@@ -1,17 +1,14 @@
 # README #
 
-An Android application tha calculates Russian political parties' rating basin on their voting and user' opinion. Very useful before elections.
-
-***Russian variant:
+***Russian:
 Приложение для Android, рассчитывающее рейтинги политических партий по наиболее резонансным законам и с учетом мнения пользователя об этих законах
 
-This README would normally document whatever steps are necessary to get your application up and running.
+***English:
+An Android application tha calculates Russian political parties' rating basin on their voting and user' opinion. Very useful before elections.
 
-### What is this repository for? ###
+v.1.0
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Android Studio project
 
 ### How do I get set up? ###
 

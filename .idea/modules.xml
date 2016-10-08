@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Vybor.iml" filepath="$PROJECT_DIR$/Vybor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_vybor_mercury.iml" filepath="$PROJECT_DIR$/_vybor_mercury.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
